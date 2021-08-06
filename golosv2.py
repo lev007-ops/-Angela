@@ -28,7 +28,6 @@ def listen_command():
     print('Услышала...')
     try:
         our_sp = r.recognize_google(audio, language = 'ru-RU')
-        print(Back.GREEN)
         print('Вы сказали: ' + our_sp)
         return our_sp
 
@@ -102,10 +101,31 @@ def do_this_command(message):
             say_message('Открываю Discord')
 
 
+        elif "расскажи о себе" in message:
+            info = "Я Анжелла. Голосовой помошник разработанный levman5. Ссылка на мой репозиторий в GitHub вывелась в консоль."
+            say_message(info)
+            print("https://github.com/lev007-ops/-Angela")
+
+        elif "раскажи о себе" in message:
+            info = "Я Анжелла. Голосовой помошник разработанный levman5. Ссылка на мой репозиторий в GitHub вывелась в консоль."
+            say_message(info)
+            print("https://github.com/lev007-ops/-Angela")
+
+
+
         elif "расскожи о себе" in message:
             info = "Я Анжелла. Голосовой помошник разработанный levman5. Ссылка на мой репозиторий в GitHub вывелась в консоль."
             say_message(info)
-            print(info)
+            print("https://github.com/lev007-ops/-Angela")
+
+
+        
+        elif "раскожи о себе" in message:
+            info = "Я Анжелла. Голосовой помошник разработанный levman5. Ссылка на мой репозиторий в GitHub вывелась в консоль."
+            say_message(info)
+            print("https://github.com/lev007-ops/-Angela")
+
+
 
         else:
             say_message("Данной команды не существует!")
