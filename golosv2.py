@@ -5,8 +5,10 @@ from tqdm import tqdm
 from time import sleep
 import webbrowser
 import os
+from colorama import init
+init()
 
-hello_text = "Привет. Я голосовой помошник Анжелла. Узнать больше обо мне можно произнеся \"Анжелла раскажи о себе\""
+hello_text = "Привет. Я голосовой помощник Анжелла. Узнать больше обо мне можно произнеся \"Анжелла раскажи о себе\""
 
 engine = pyttsx3.init()
 for i in tqdm(range(100)):
@@ -26,6 +28,7 @@ def listen_command():
     print('Услышала...')
     try:
         our_sp = r.recognize_google(audio, language = 'ru-RU')
+        print(Back.GREEN)
         print('Вы сказали: ' + our_sp)
         return our_sp
 
@@ -90,8 +93,24 @@ def do_this_command(message):
             webbrowser.open('https://web.telegram.org/z/#93372553')
             say_message("Открываю телеграм")
 
+        elif "открой discord" in message:
+            os.startfile('C:/Users/Дом/AppData/Local/Discord/Update.exe --processStart Discord.exe')
+            say_message('Открываю Discord')
+        
+        elif "открой дискорд" in message:
+            os.startfile('C:/Users/Дом/AppData/Local/Discord/Update.exe --processStart Discord.exe')
+            say_message('Открываю Discord')
+
+
+        elif "расскожи о себе" in message:
+            info = "Я Анжелла. Голосовой помошник разработанный levman5. Ссылка на мой репозиторий в GitHub вывелась в консоль."
+            say_message(info)
+            print(info)
+
         else:
             say_message("Данной команды не существует!")
+
+        
 
 
 
@@ -110,12 +129,6 @@ def do_this_command(message):
             
     else:
         pass
-
-
-
-
-
-
 
 while True:
     command = listen_command()
